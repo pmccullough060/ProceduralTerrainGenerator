@@ -5,6 +5,7 @@ function MapNoise(val, smin, smax, emin, emax){
     return (emax - emin) * t + emin;
 }
 
+//generates the simplexNoise and applies the relevant boundaries...
 function Noise(noiseX, noiseY){
     return MapNoise(SimplexNoise.noise(noiseX, noiseY), -1, 1, 0, 1);
 }
@@ -34,3 +35,14 @@ function CreateCanvas(widthPixels, heightPixels){
 }
 
 CreateCanvas(50, 50);
+
+function generateTexture(){
+    const perlinNoiseCanvas = document.getElementById('perlinNoiseCanvas');
+
+    //Creates a CanvasRenderingContext2D object representing a two-dimensional rendering context
+    const canvasContextObject = canvas.getContext('2d');
+    canvasContextObject.fillstyle = 'black';
+    canvasContextObject.fillRect(0, 0, perlinNoiseCanvas.width, perlinNoiseCanvas.height);
+}
+
+generateTexture();
