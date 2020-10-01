@@ -28,7 +28,7 @@ function Octave(nx, ny, octaves){
 
 function CreateCanvas(widthPixels, heightPixels){
     var perlinNoiseCanvas = document.createElement("canvas");
-    perlinNoiseCanvas.id = 'perlinNoiseCanvas';
+    perlinNoiseCanvas.id = "perlinNoiseCanvas";
     document.body.appendChild(perlinNoiseCanvas);
     perlinNoiseCanvas.width = widthPixels;
     perlinNoiseCanvas.height = heightPixels;
@@ -37,12 +37,19 @@ function CreateCanvas(widthPixels, heightPixels){
 CreateCanvas(50, 50);
 
 function generateTexture(){
-    const perlinNoiseCanvas = document.getElementById('perlinNoiseCanvas');
+    const perlinNoiseCanvas = document.getElementById("perlinNoiseCanvas");
 
     //Creates a CanvasRenderingContext2D object representing a two-dimensional rendering context
-    const canvasContextObject = canvas.getContext('2d');
-    canvasContextObject.fillstyle = 'black';
+    const canvasContextObject = perlinNoiseCanvas.getContext('2d');
+    canvasContextObject.fillStyle = "#FF0000";
     canvasContextObject.fillRect(0, 0, perlinNoiseCanvas.width, perlinNoiseCanvas.height);
+
+    for(let i = 0; i < perlinNoiseCanvas.width; i++){
+        for(let j = 0; j < perlinNoiseCanvas.height; j++){
+        }
+    }
+
+    return canvasContextObject.getImageData(0, 0, perlinNoiseCanvas.width, perlinNoiseCanvas.height);
 }
 
 generateTexture();
